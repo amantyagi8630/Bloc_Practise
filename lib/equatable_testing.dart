@@ -35,6 +35,7 @@ class Person extends Equatable {
   final int age;
 
   const Person({
+
     required this.name,
     required this.age,
   });
