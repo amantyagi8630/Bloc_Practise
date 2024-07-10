@@ -47,7 +47,7 @@ class ToDoScreen extends StatelessWidget {
             context.read<ToDoBloc>().add(AddToDoEvent(task: 'Task: $i'));
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
