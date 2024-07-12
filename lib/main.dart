@@ -1,9 +1,9 @@
+import 'package:bloc_demo/bloc/favourite_app_bloc/favourite_app_bloc.dart';
 import 'package:bloc_demo/bloc/image_picker_bloc/image_picker_bloc.dart';
 import 'package:bloc_demo/bloc/switch_example/switch_bloc.dart';
 import 'package:bloc_demo/bloc/todo/todo_bloc.dart';
-import 'package:bloc_demo/bloc/favourite/favourite_app_bloc.dart';
-import 'package:bloc_demo/ui/favourite/favourite_screen.dart';
-import 'package:bloc_demo/ui/todo_screen/todo_screen.dart';
+import 'package:bloc_demo/repository/favourite_repository.dart';
+import 'package:bloc_demo/ui/favourite_app/favourite_app_screen.dart';
 import 'package:bloc_demo/utils/image_picker_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/counter_bloc/counter_bloc.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => SwitchBloc()),
         BlocProvider(create: (_) => ImagePickerBloc(ImagePickerUtils())),
         BlocProvider(create: (_) => ToDoBloc()),
-        BlocProvider(create: (_) => FavouriteAppBloc()),
+        BlocProvider(create: (_) => FavouriteBloc(FavouriteRepository())),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -33,58 +33,8 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           useMaterial3: true,
         ),
-        home: const FavouriteAppScreen(),
+        home: FavouriteAppScreen(),
       ),
     );
   }
 }
-
-/*
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
-*/

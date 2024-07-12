@@ -7,6 +7,7 @@ class FavouriteItemModel extends Equatable {
     this.isDeleting = false,
     this.isFavourite = false,
   });
+
   final String id;
   final String value;
   final bool isDeleting;
