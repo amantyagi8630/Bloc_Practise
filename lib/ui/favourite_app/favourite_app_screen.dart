@@ -26,7 +26,7 @@ class FavouriteAppScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               case ListStatus.success:
                 return ListView.builder(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   itemCount: state.favouriteItemList.length,
                   itemBuilder: (context, index) {
                     return Card(
